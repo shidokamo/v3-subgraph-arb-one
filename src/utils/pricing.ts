@@ -6,7 +6,8 @@ import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
 // Should be all lower case??
 const WETH_ADDRESS = '0x82af49447d8a07e3bd95bd0d56f35241523fbab1' // Arb-One
-const USDC_WETH_03_POOL = '0x17c14d2c404d167802b16c450d3c99f88f2c4f4d' // Arb-One, 0.3% @ block 4291
+// const USDC_WETH_03_POOL = '0x17c14d2c404d167802b16c450d3c99f88f2c4f4d' // Arb-One, 0.3% @ block 4291
+const USDC_WETH_POOL = '0xc31e54c7a869b9fcbecc14363cf510d1c41fa443' // Arb-One, 0.05% @ block 100909
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with s
@@ -44,9 +45,10 @@ export function sqrtPriceX96ToTokenPrices(sqrtPriceX96: BigInt, token0: Token, t
 
 export function getEthPriceInUSD(): BigDecimal {
   // fetch eth prices for each stablecoin
-  let usdcPool = Pool.load(USDC_WETH_03_POOL) // dai is token0
+  let usdcPool = Pool.load(USDC_WETH_POOL) // usdc is token1
   if (usdcPool !== null) {
-    return usdcPool.token0Price
+    return usdcPool.token1Price
+    // return ONE_BD
   } else {
     return ZERO_BD
   }
