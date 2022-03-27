@@ -4,8 +4,9 @@ import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
-const WETH_ADDRESS = '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1' // Arb-One
-const USDC_WETH_03_POOL = '0x17c14D2c404D167802b16C450d3c99F88F2c4F4d' // Arb-One, 0.3% @ block 4291
+// Should be all lower case??
+const WETH_ADDRESS = '0x82af49447d8a07e3bd95bd0d56f35241523fbab1' // Arb-One
+const USDC_WETH_03_POOL = '0x17c14d2c404d167802b16c450d3c99f88f2c4f4d' // Arb-One, 0.3% @ block 4291
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with s
